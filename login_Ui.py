@@ -51,9 +51,23 @@ class Ui_Dialog(object):
         self.pushButton.clicked.connect(self.loginPush)
 
     def loginPush(self):
-        
+        username = self.lineEdit.text()
         loginPrompt.dialog.close()
-        loginPrompt.hr_user.show()
+        if username.lower() == "hr":
+            loginPrompt.hr_user.show()
+        elif username.lower() == "clinic":
+            loginPrompt.clinic_user.show()
+        elif username.lower() == "head":
+            loginPrompt.head_user.show()
+        elif username.lower() == "normal employee":
+            loginPrompt.normal_user.show()
+        elif username.lower() == "security":
+            loginPrompt.security_user.show()
+        else:
+            loginPrompt.dialog.show()
+
+
+
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
